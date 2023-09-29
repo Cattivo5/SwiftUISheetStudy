@@ -24,7 +24,7 @@ struct ExampleOneView: View {
                 The View owns the viewModel as StateObject and uses it to show its title.
                 The sheet also references the viewModel with viewModel.sheetTitle to show its title. 
                 The isPresented binding is a State of the view.
-                When the sheet is not opened and the view is closed, the viewModel is deallocated. When the sheet was opened, it is not deallocated.
+                When the sheet is not opened and the view is closed, the viewModel is deallocated. When the sheet was opened and closed, it is not deallocated.
                 """
             )
             .font(.body)
@@ -43,9 +43,6 @@ struct ExampleOneView: View {
     }
 }
 
-#Preview {
-    ExampleOneView()
-}
 
 class ExampleOneViewModel: ObservableObject {
     let title = "ExampleOneViewModel"
@@ -60,4 +57,9 @@ class ExampleOneViewModel: ObservableObject {
     deinit {
         print("\(String(describing: self)) \(uuid) \(#function)")
     }
+}
+
+
+#Preview {
+    ExampleOneView()
 }

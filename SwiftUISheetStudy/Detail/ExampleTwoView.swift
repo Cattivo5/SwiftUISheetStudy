@@ -23,7 +23,7 @@ struct ExampleTwoView: View {
                 The View owns the viewModel as StateObject and uses it to show its title.
                 The sheet content does not reference the viewModel and displays static text.
                 The isPresented binding is a published property of the viewModel.
-                When the sheet is not opened and the view is closed, the viewModel is deallocated. When the sheet was opened, it is not deallocated.
+                When the sheet is not opened and the view is closed, the viewModel is deallocated. When the sheet was opened and closed, it is not deallocated.
                 """
             )
             .font(.body)
@@ -42,9 +42,6 @@ struct ExampleTwoView: View {
     }
 }
 
-#Preview {
-    ExampleTwoView()
-}
 
 class ExampleTwoViewModel: ObservableObject {
     
@@ -60,4 +57,9 @@ class ExampleTwoViewModel: ObservableObject {
     deinit {
         print("\(String(describing: self)) \(uuid) \(#function)")
     }
+}
+
+
+#Preview {
+    ExampleTwoView()
 }
